@@ -1,6 +1,6 @@
 # 06 — Test, Güvenlik ve Performans
 
-**Sürüm:** 1.1  
+**Sürüm:** 1.2  
 **Kapsam:** Tüm web projeleri  
 **Amaç:** Yayından önce fonksiyon, güvenlik, responsive ve performans hatalarını sistematik olarak yakalamak.
 
@@ -23,6 +23,14 @@ Test seviyesi değişikliğin etkisine göre seçilir.
 Örnek: ödeme, üyelik, yetkilendirme, veritabanı, routing, permalink, deployment veya altyapı değişikliği.
 - İlgili tüm kritik akışları ve regresyon senaryolarını çalıştır.
 - Gerekli güvenlik, veri bütünlüğü ve rollback kontrollerini tamamla.
+
+## Tekrar ve Bekleme Sınırı
+- Aynı test aynı sonucu veriyorsa art arda tekrar çalıştırma.
+- CI/workflow veya deploy durumu değişmeden art arda en fazla **2 kontrol** yap.
+- Test sonucu bekleniyorsa yapay bekleme/sleep/simülasyon çağrısı üretme.
+- Küçük değişiklik için geniş test zinciri kendiliğinden başlatma.
+- Bir test iki kez aynı noktada başarısız olursa aynı komutu tekrar etmek yerine kök nedeni incele.
+- Görsel yerleşimi değişikliğinde görsel dosya bütünlüğü yeniden encode/AVIF/Base64 işlemleriyle test edilmez; yalnız görselin doğru render edildiği kontrol edilir.
 
 ## Kontrol Sırası
 1. Kritik kullanıcı akışlarını test et.
