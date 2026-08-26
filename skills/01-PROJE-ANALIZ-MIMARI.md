@@ -1,6 +1,6 @@
 # 01 — Proje Analizi ve Mimari
 
-**Sürüm:** 1.0  
+**Sürüm:** 1.1  
 **Kapsam:** Tüm web projeleri  
 **Amaç:** Geliştirmeye başlamadan önce projenin ne yapılacağını, hangi teknolojiyle yapılacağını ve hangi sınırlar içinde kalacağını kesinleştirmek.
 
@@ -31,6 +31,16 @@
 6. GitHub repo/branch yapısını tanımla.
 7. Geliştirme sırasını bağımlılıklara göre oluştur.
 8. Kararları proje ana dokümanına kaydet.
+
+## Araç ve Erişim Doğrulama Protokolü
+- Bir işlemi yapamayacağını söylemeden önce mevcut araç/connector durumunu gerçekten kontrol et.
+- İlgili servis bağlıysa önce uygun okuma, metadata veya güvenli doğrulama çağrısını yap; yalnız varsayıma dayanarak “erişimim yok” deme.
+- Gerekli işlem görünmüyorsa ilgili connector içinde uygun fonksiyonu bir kez keşfet.
+- Aynı oturumda servis/repo üzerinde başarılı işlem yapıldıysa sonraki istekte erişimin kaybolduğunu varsayma; önce yeniden doğrula.
+- Tek bir çağrının başarısız olması tüm servise erişim olmadığı anlamına gelmez. Servis erişimi, repo erişimi, yazma yetkisi, Actions/deploy yetkisi ve belirli fonksiyon eksikliği ayrı ayrı değerlendirilir.
+- Geçici veya belirsiz hata bir kez güvenli şekilde yeniden denenebilir. Yazma işleminin sonucu belirsizse tekrar yazmadan önce hedef durumu oku ve doğrula.
+- Mevcut araçla yapılabilen işi kullanıcıya manuel komut veya işlem olarak devretme.
+- İşlem gerçekten mümkün değilse yalnız engellenen işlemi, doğrulanan nedeni ve kullanıcının yapması gereken tek zorunlu adımı bildir; genel “erişim yok” ifadesi kullanma.
 
 ## Kurallar
 - Gereksiz özellik ekleme.
