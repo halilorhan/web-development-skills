@@ -1,6 +1,6 @@
 # 07 — GitHub, Versiyon, Yayın ve Rollback
 
-**Sürüm:** 1.2  
+**Sürüm:** 1.3  
 **Kapsam:** Tüm web projeleri  
 **Amaç:** Tüm kod değişikliklerini GitHub üzerinden izlenebilir, geri alınabilir ve kontrollü biçimde canlıya taşımak.
 
@@ -21,7 +21,7 @@ GitHub kod için ana kayıt kaynağıdır. SSH erişimine bağımlı bir çalı�
 ## Küçük Değişiklik Hızlı Yayın Yolu
 Tek component, metin, görsel yerleşimi, spacing, CSS veya benzeri lokal değişikliklerde varsayılan akış:
 
-**İlgili dosyayı aç → minimum patch uygula → commit/push → mevcut deploy'u tetikle/çalışmasını bekle → yalnız etkilenen alanı smoke test et.**
+**İlgili dosyayı aç → minimum patch uygula → commit/push → mevcut deploy'u tetikle/çalışmasını kontrol et → yalnız etkilenen alanı smoke test et.**
 
 Bu tür değişikliklerde, değişiklik gerektirmiyorsa:
 - tüm repo yeniden taranmaz,
@@ -33,7 +33,25 @@ Bu tür değişikliklerde, değişiklik gerektirmiyorsa:
 - tüm site testleri tekrar çalıştırılmaz,
 - aynı CI durumu gereksiz aralıklarla tekrar tekrar sorgulanmaz.
 
-Mevcut CI/CD pipeline otomatik olarak daha geniş test çalıştırıyorsa pipeline'ın tamamlanması beklenir; ancak asistan bunun yanında gereksiz ek kontrol zinciri oluşturmaz.
+Görselin yalnız yerleşimi, boyutu veya konumu değişiyorsa **görsel dosyasının kendisine dokunma**. Binary/Base64 işlemi yalnız gerçek görsel dosyasının değiştirilmesi zorunluysa kullanılır.
+
+## CI / Deploy Polling Sınırı
+- Aynı workflow/deploy durumu değişmeden art arda en fazla **2 kez** kontrol edilir.
+- `sleep`, bekleme süresi simülasyonu veya yalnız zaman geçirmek için araç çağrısı yapılmaz.
+- İkinci kontrolde hâlâ aynı durum varsa yeni polling döngüsü başlatma; mevcut gerçek durumu raporla ve yalnız anlamlı başka bir işlem varsa devam et.
+- Aynı job/step iki kez aynı şekilde başarısız olursa aynı komutu tekrar etme; log/kök neden incelemesine geç veya alternatif yöntem kullan.
+- Küçük işte CI hatasının sebebi ilgisiz bir asset/workflow problemi ise önce bunun gerçekten yapılan değişiklikten kaynaklanıp kaynaklanmadığını doğrula; kanıt olmadan hero görseli, AVIF, Base64 veya workflow zincirini yeniden üretme.
+- Sonucu belirsiz bir write/merge/deploy işleminde tekrar denemeden önce repo/PR/workflow durumunu oku.
+
+## Hızlı Yol Koruma Eşiği
+Küçük/lokal bir istek sırasında aşağıdakilerden biri oluşursa ağır işleme otomatik geçme; önce kapsamı yeniden doğrula:
+- beklenenden fazla dosya değişmesi,
+- workflow dosyasına müdahale ihtiyacı,
+- asset pipeline veya binary/Base64 parçalama ihtiyacı,
+- aynı adımda ikinci başarısızlık,
+- değişiklikle ilgisiz test hataları.
+
+Hedef: **minimum dosya → minimum commit → mevcut deploy → minimum smoke test**.
 
 ## GitHub Erişim Sürekliliği
 - “GitHub/repo/deploy erişimim yok” demeden önce ilgili repoyu gerçek bir metadata veya dosya okuma çağrısıyla doğrula.
