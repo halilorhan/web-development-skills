@@ -1,0 +1,44 @@
+# 01 — Proje Analizi ve Mimari
+
+**Sürüm:** 1.0  
+**Kapsam:** Tüm web projeleri  
+**Amaç:** Geliştirmeye başlamadan önce projenin ne yapılacağını, hangi teknolojiyle yapılacağını ve hangi sınırlar içinde kalacağını kesinleştirmek.
+
+## Girdiler
+- Müşteri briefi, mevcut site ve referanslar
+- Marka/kurumsal kimlik dosyaları
+- İstenen sayfalar, özellikler ve entegrasyonlar
+- İçerik/ürün kaynakları
+- Alan adı, hosting ve mevcut teknik durum
+- Projenin WordPress mi özel yazılım mı olacağı
+
+## Zorunlu Çıktılar
+1. Proje amacı ve kapsamı
+2. Kullanılacak teknoloji
+3. Sayfa/menü/kategori haritası
+4. Gerekli veri yapıları
+5. Gerekli entegrasyonlar
+6. Repo ve ortam yapısı
+7. Uygulama sırası
+8. Kapsam dışı işler ve kritik riskler
+
+## İş Akışı
+1. Kaynakları incele.
+2. Eksik ama çalışmayı engellemeyen konularda güvenli varsayımı açıkça kaydet; kritik belirsizlik varsa geliştirmeyi o noktada kilitle.
+3. WordPress veya özel yazılım yolunu seç.
+4. Sayfa ve veri mimarisini çıkar.
+5. Gerekli modül ve entegrasyonları belirle.
+6. GitHub repo/branch yapısını tanımla.
+7. Geliştirme sırasını bağımlılıklara göre oluştur.
+8. Kararları proje ana dokümanına kaydet.
+
+## Kurallar
+- Gereksiz özellik ekleme.
+- Teknoloji seçimini alışkanlığa göre değil proje ihtiyacına göre yap.
+- Tasarım kararı ile teknik kararı birbirine karıştırma.
+- Aynı veri iki farklı yerde yönetilmesin.
+- Gizli bilgiler repoya yazılmasın.
+- Başlangıçta rollback ve veri kaybı riski düşünülmeden geliştirmeye geçilmesin.
+
+## Tamamlanma Kriteri
+Geliştirici; neyi, hangi sırayla, hangi teknolojiyle ve hangi veri yapısıyla yapacağını ek karar üretmeden anlayabiliyorsa bu skill tamamlanmıştır.
