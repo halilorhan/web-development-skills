@@ -1,6 +1,6 @@
 # 07 — GitHub, Versiyon, Yayın ve Rollback
 
-**Sürüm:** 1.3  
+**Sürüm:** 1.4  
 **Kapsam:** Tüm web projeleri  
 **Amaç:** Tüm kod değişikliklerini GitHub üzerinden izlenebilir, geri alınabilir ve kontrollü biçimde canlıya taşımak.
 
@@ -53,14 +53,18 @@ Küçük/lokal bir istek sırasında aşağıdakilerden biri oluşursa ağır i�
 
 Hedef: **minimum dosya → minimum commit → mevcut deploy → minimum smoke test**.
 
-## GitHub Erişim Sürekliliği
-- “GitHub/repo/deploy erişimim yok” demeden önce ilgili repoyu gerçek bir metadata veya dosya okuma çağrısıyla doğrula.
+## GitHub Erişim Sürekliliği ve Yetenek Keşfi
+- “GitHub/repo/deploy erişimim yok” demeden önce GitHub connector/tool fonksiyonlarını gerçekten keşfet ve ilgili repoyu metadata veya dosya okuma çağrısıyla doğrula.
+- İlk bakışta görünen “aktif araç seti” GitHub yeteneklerinin tamamı olarak kabul edilmez. Connector keşfi yapılmadan “GitHub aracı yok” denmez.
+- Repo okuma erişimi, repo yazma erişimi, branch/commit yetkisi, Actions yetkisi ve hosting deploy yetkisi birbirinden farklıdır; yalnız başarısız olan katmanı belirt.
 - Aynı oturumda repo üzerinde commit, dosya değişikliği, workflow veya deploy başarıyla yapıldıysa sonraki istekte erişimi otomatik olarak yok sayma; önce aynı repo ve gerekli yetkiyi yeniden kontrol et.
-- Repo okuma erişimi, repo yazma erişimi, GitHub Actions yetkisi ve hosting deploy yetkisi birbirinden farklıdır. Yalnız başarısız olan katmanı belirt.
-- Belirli bir GitHub fonksiyonunun araçta bulunmaması “GitHub erişimi yok” anlamına gelmez. Gerekirse uygun GitHub fonksiyonunu keşfet ve mevcut yeteneklerle devam et.
+- Kullanıcı repo/deploy erişiminin açık olduğunu belirtiyorsa, bunu gerçek araç çağrısıyla doğrula; doğrulamadan reddetme.
+- Belirli bir GitHub fonksiyonunun ilk keşifte görünmemesi “GitHub erişimi yok” anlamına gelmez. İlgili eylem için uygun fonksiyonu yeniden keşfet veya mevcut alternatif GitHub işlemini kullan.
+- Dosya değişikliği isteniyorsa mümkün olduğunda sıra: **repo doğrula → dosyayı fetch et → mevcut SHA'yı al → update/create işlemini yap → sonucu doğrula**.
 - Bir GitHub çağrısı geçici hata verirse, sonucu belirsiz bir yazma işlemini körlemesine tekrarlama; önce repo durumunu okuyup işlemin gerçekleşip gerçekleşmediğini doğrula.
 - GitHub ile yapılabilecek bir işlem mevcutken kullanıcıdan terminal/SSH komutu çalıştırmasını isteme.
-- Gerçek yetki engeli varsa genel mazeret verme: hangi repo, hangi işlem, hangi yetki/fonksiyon eksik ve kullanıcının yapması gereken tek adım nedir açıkça belirt.
+- “GitHub/deploy aracı açıldığı anda yaparım” veya “bu konuşmada araç görünmüyor” diyerek işi erteleme. Önce connector keşfi ve gerçek doğrulama yap.
+- Gerçek yetki engeli varsa genel mazeret verme: hangi repo, hangi işlem, hangi araç/fonksiyon denendi, hangi yetki eksik ve kullanıcının yapması gereken tek adım nedir açıkça belirt.
 
 ## Kurallar
 - Şifre, token, private key ve `.env` repoya girmez.
