@@ -1,6 +1,6 @@
 # 01 — Proje Analizi ve Mimari
 
-**Sürüm:** 1.3  
+**Sürüm:** 1.4  
 **Kapsam:** Tüm web projeleri  
 **Amaç:** Geliştirmeye başlamadan önce projenin ne yapılacağını, hangi teknolojiyle yapılacağını ve hangi sınırlar içinde kalacağını kesinleştirmek.
 
@@ -53,13 +53,16 @@
 
 ## Araç ve Erişim Doğrulama Protokolü
 - Bir işlemi yapamayacağını söylemeden önce mevcut araç/connector durumunu gerçekten kontrol et.
-- İlgili servis bağlıysa önce uygun okuma, metadata veya güvenli doğrulama çağrısını yap; yalnız varsayıma dayanarak “erişimim yok” deme.
-- Gerekli işlem görünmüyorsa ilgili connector içinde uygun fonksiyonu bir kez keşfet.
+- Ekranda veya ilk bakışta görünen araç listesini **nihai yetenek listesi olarak kabul etme**. İlgili servis in-scope/bağlıysa connector fonksiyonlarını keşfetmeden “araç yok” sonucuna varma.
+- GitHub, dosya sistemi, deploy veya başka bağlı servis için önce ilgili connector/tool şemasını keşfet; ardından hedef repo/kaynak üzerinde gerçek bir okuma veya metadata çağrısı yap.
+- Gerekli yazma işlemi için okuma erişimi ile yazma yetkisini ayrı doğrula. Bir fonksiyonun görünmemesi, servisin tamamına erişim olmadığı anlamına gelmez.
 - Aynı oturumda servis/repo üzerinde başarılı işlem yapıldıysa sonraki istekte erişimin kaybolduğunu varsayma; önce yeniden doğrula.
+- Kullanıcı “bu oturumda erişim açık” diyorsa bunu tek başına yeterli kanıt kabul etme ama **doğrudan reddetme de**; gerçek connector doğrulamasını yap.
 - Tek bir çağrının başarısız olması tüm servise erişim olmadığı anlamına gelmez. Servis erişimi, repo erişimi, yazma yetkisi, Actions/deploy yetkisi ve belirli fonksiyon eksikliği ayrı ayrı değerlendirilir.
 - Geçici veya belirsiz hata bir kez güvenli şekilde yeniden denenebilir. Yazma işleminin sonucu belirsizse tekrar yazmadan önce hedef durumu oku ve doğrula.
 - Mevcut araçla yapılabilen işi kullanıcıya manuel komut veya işlem olarak devretme.
-- İşlem gerçekten mümkün değilse yalnız engellenen işlemi, doğrulanan nedeni ve kullanıcının yapması gereken tek zorunlu adımı bildir; genel “erişim yok” ifadesi kullanma.
+- “Araç açıldığında yaparım”, “şu an görünmüyor”, “bu oturumda yok” gibi cümleleri **connector keşfi ve gerçek doğrulama yapılmadan kullanma**.
+- İşlem gerçekten mümkün değilse yalnız engellenen işlemi, yapılan doğrulamayı, doğrulanan nedeni ve kullanıcının yapması gereken tek zorunlu adımı bildir; genel “erişim yok” ifadesi kullanma.
 
 ## Kurallar
 - Gereksiz özellik ekleme.
