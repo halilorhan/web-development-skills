@@ -1,6 +1,6 @@
 # 01 — Proje Analizi ve Mimari
 
-**Sürüm:** 1.2  
+**Sürüm:** 1.3  
 **Kapsam:** Tüm web projeleri  
 **Amaç:** Geliştirmeye başlamadan önce projenin ne yapılacağını, hangi teknolojiyle yapılacağını ve hangi sınırlar içinde kalacağını kesinleştirmek.
 
@@ -40,6 +40,16 @@
 - Aynı doğrulamayı sonuç değiştirmeden tekrar tekrar yapma.
 - Hız uğruna güvenliği atlama; ancak güvenlik adına değişiklik kapsamıyla ilgisiz işlem üretme.
 - Amaç: **en küçük güvenli değişiklik → gerekli doğrulama → yayın → sonuç kontrolü**.
+
+## Zaman Bütçesi ve Döngü Kesme
+- Küçük/lokal bir işte ilerleme sağlamayan uzun analiz zinciri oluşturma.
+- Aynı düşük seviyeli işlem en fazla **2 kez** başarısız denenebilir. İkinci başarısızlıktan sonra aynı yöntemi tekrar etme; hedef durumu oku, kök nedeni belirle ve farklı yöntem seç.
+- Aynı CI/workflow durumu değişmeden art arda en fazla **2 kez** kontrol edilir. Daha fazla polling, bekleme simülasyonu veya yapay süre doldurma yapılmaz.
+- `sleep`, “bekleme süresini simüle etme” veya yalnız zaman geçirmek için terminal/araç çağrısı kullanma.
+- Küçük bir değişiklik beklenmedik biçimde asset pipeline, workflow düzenleme, çoklu binary/Base64 parçalama veya geniş repo değişikliği gerektiriyorsa **kapsamı yeniden değerlendir**; kanıt olmadan ağır yönteme geçme.
+- Görselin kendisi değişmiyorsa görsel dosyasının byte içeriğine dokunma; yalnız yerleşim/kod/CSS değiştir.
+- Bir araç çağrısı sonucu belirsizse aynı yazma işlemini tekrar etmeden önce hedef durumu oku.
+- Uzayan işlemde amaç “bir şeyler yapmaya devam etmek” değil, en kısa güvenli yoldan sonucu üretmektir.
 
 ## Araç ve Erişim Doğrulama Protokolü
 - Bir işlemi yapamayacağını söylemeden önce mevcut araç/connector durumunu gerçekten kontrol et.
