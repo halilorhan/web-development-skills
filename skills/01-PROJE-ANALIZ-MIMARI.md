@@ -1,6 +1,6 @@
 # 01 — Proje Analizi ve Mimari
 
-**Sürüm:** 1.1  
+**Sürüm:** 1.2  
 **Kapsam:** Tüm web projeleri  
 **Amaç:** Geliştirmeye başlamadan önce projenin ne yapılacağını, hangi teknolojiyle yapılacağını ve hangi sınırlar içinde kalacağını kesinleştirmek.
 
@@ -31,6 +31,15 @@
 6. GitHub repo/branch yapısını tanımla.
 7. Geliştirme sırasını bağımlılıklara göre oluştur.
 8. Kararları proje ana dokümanına kaydet.
+
+## İş Ölçeği ve Hızlı Yol
+- Her istekte önce değişikliğin gerçek kapsamını belirle: küçük/lokal, orta veya yüksek riskli.
+- Tek component, metin, görsel yerleşimi, spacing, stil veya benzeri lokal değişikliklerde **minimum müdahale** uygula.
+- Küçük değişiklikte tüm repo taraması, ilgisiz dosya analizi, asset yeniden üretimi, format dönüşümü, Base64 işlemi, geniş regresyon veya uzun CI incelemesi yapma; yalnız değişiklik gerçekten bunları gerektiriyorsa yap.
+- Değişiklik için gerekli dosya zaten biliniyorsa yeniden keşif/tarama yapma.
+- Aynı doğrulamayı sonuç değiştirmeden tekrar tekrar yapma.
+- Hız uğruna güvenliği atlama; ancak güvenlik adına değişiklik kapsamıyla ilgisiz işlem üretme.
+- Amaç: **en küçük güvenli değişiklik → gerekli doğrulama → yayın → sonuç kontrolü**.
 
 ## Araç ve Erişim Doğrulama Protokolü
 - Bir işlemi yapamayacağını söylemeden önce mevcut araç/connector durumunu gerçekten kontrol et.
