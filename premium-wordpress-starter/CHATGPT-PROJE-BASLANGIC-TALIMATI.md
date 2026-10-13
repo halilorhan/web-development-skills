@@ -42,3 +42,9 @@ Yeni projenin özel kodu ve verileri yalnız o müşterinin reposunda tutulur. B
 
 ## Erişim sınırı
 GitHub deposu erişilebilir olduğu sürece bu talimatlar okunabilir. **Bütün yeni ChatGPT projelerine otomatik enjekte edilme garantisi yoktur.** Her yeni projenin Project talimatlarına bu başlangıç metni eklenmeli veya eşdeğer merkezi okuma kuralı tanımlanmalıdır.
+
+## ZORUNLU PERFORMANS VE MİNİMUM YÜK KURALI
+- **Her yeni özellik, eklenti, animasyon, harici servis, CSS veya JavaScript eklenmeden önce gerçekten gerekli olup olmadığı değerlendirilir. Aynı kullanıcı deneyimi ve işlev daha hafif bir yöntemle sağlanabiliyorsa daha hafif yöntem seçilir.**
+- Varsayılan yaklaşım: minimum eklenti, minimum bağımlılık, hedefli CSS/JS, yalnız gerektiğinde animasyon ve dinamik işlem; gereksiz istek, üçüncü taraf script ve medya yükü ekleme.
+- Premium görünüm hızın veya erişilebilirliğin pahasına kurulmaz. Eklenti/özellik kararları gerçek ihtiyaç, ölçülebilir etki ve bakım yüküyle gerekçelendirilir.
+- Optimizasyon uğruna çalışan tasarım, form, SEO veya entegrasyon bozulmaz; değişiklik kapsamına göre test edilir.
