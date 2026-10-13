@@ -2,7 +2,7 @@
 
 1. **ChatGPT Project talimatlarına** `CHATGPT-PROJE-BASLANGIC-TALIMATI.md` dosyasını ekle veya aynı kapsamda merkezî GitHub okuma yükümlülüğünü belirle. Bu işlem uygulanmadan otomatik okunduğunu varsayma.
 2. Yeni müşteri için ayrı GitHub repo; ASGE'nin kişisel medya/içerik verisini asla taşımadan proje kayıtlarını oluştur.
-3. Bağlı GitHub, WordPress MCP, hosting/panel araçlarını **asistan önce kendisi gerçek çağrılarla doğrulasın**; yetki eksikliğini ancak somut testten sonra raporlasın.
+3. Bağlı GitHub, **Orange MCP Server for WordPress**, hosting/panel araçlarını **asistan önce kendisi gerçek çağrılarla doğrulasın**; yetki eksikliğini ancak somut testten sonra raporlasın.
 4. Merkezî kuralları oku, başlangıçta erişilen SHA/branch, proje talimatı ve tarih kaydını sabitle. İleride değişen master kuralları müşteri projesine sessizce uygulama.
 5. İçerik ve URL envanteri, bilgi mimarisi, tasarım sistemi, WordPress mimarisi, medyalar ve entegrasyonlar sırayla üretilsin.
 6. Elementor mevcut sayfalarına full-page write uygulanmasın. Kısmi widget/container değişikliği dışında sessiz alternatif kullanılmasın.
