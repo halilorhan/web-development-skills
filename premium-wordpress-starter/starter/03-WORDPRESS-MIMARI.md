@@ -34,3 +34,6 @@ ASGE `asge-core` plugin'i dinamik destek programı CPT, alanlar, REST filtreleri
 
 ## Kabul
 Yönetilebilir içerik, izolasyonlu iş mantığı, global bileşen tutarlılığı, güvenli kısmi Elementor düzenlemeleri, izlenebilir kod ve geri dönüş yöntemi doğrulanmıştır.
+
+## Katı performans / bağımlılık bütçesi
+Yeni eklenti, custom plugin modülü, REST çağrısı, CSS/JS dosyası, üçüncü taraf servis veya frontend bileşeni eklenmeden önce **gereklilik, alternatif hafif çözüm, bakım/güncelleme riski ve siteye yük** değerlendirilir. Gereksiz bağımlılık eklenmez; aynı iş mevcut sistemde güvenli ve hafif çözülebiliyorsa yeni katman kurulmaz. WordPress/Elementor uyumluluğu ve yönetilebilirlik feda edilmez.
