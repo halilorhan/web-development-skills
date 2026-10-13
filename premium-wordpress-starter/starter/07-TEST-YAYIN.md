@@ -7,7 +7,7 @@
 **Canlı yayın değişikliği, veri/uygulama hedefi doğrulanmadan ve kullanılabilir yedek alınmadan yapılmaz.** SSH zorunluluğu yaratılmaz; gerçek hosting/panel özellikleriyle mümkün en güvenli yol kullanılır.
 
 ## Yayın öncesi
-1. Bağlı GitHub, WordPress MCP/WPVibe ve sunucu/panel araçlarını ayrı doğrula. Staging bağlantısı production erişimi değildir.
+1. Bağlı GitHub, Orange tarafından geliştirilen MCP Server for WordPress ve sunucu/panel araçlarını ayrı doğrula. Staging bağlantısı production erişimi değildir.
 2. Staging ve production uygulama adları, domainleri, document root, DB adları/prefixleri ve ortam sınırlarını kaydet.
 3. Canlıya dokunmadan önce production **dosya + veritabanı** yedeğinin doğru uygulamaya ait, indirilebilir ve geri yüklenebilir olduğunu doğrula. Staging kaynak yedeğini de al.
 4. SEO migrasyon tablosu ve bütün önemli URL'ler, form/SMTP, SSL ve üçüncü taraf entegrasyon listesi hazır olsun.
