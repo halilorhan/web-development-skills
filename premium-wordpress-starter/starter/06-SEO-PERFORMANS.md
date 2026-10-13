@@ -35,3 +35,6 @@ Dinamik hibe/teşvik sayfaları, programların tarih ve limitleri gibi sürekli 
 
 ## Kabul
 Önemli eski URL'ler çalışıyor veya doğru 301 alıyor; sitemap ve canonical gerçek alan adında; staging indeks dışı; production kritik sayfaları bilinçli index ayarlı; sayfalar mobil kullanılabilir ve performans ölçümleri raporlu.
+
+## Üst öncelikli hafiflik kuralı
+**Her özellik, eklenti, animasyon veya kod için önce gerçek ihtiyaç sorgulanır. Aynı sonuca daha hafif ve güvenli yöntemle ulaşılıyorsa hafif yöntem seçilir.** Özellikle ağır animasyon kütüphaneleri, sayfa geneline yüklenen ihtiyaç dışı JS/CSS, gereksiz izleme scriptleri, duplicate eklentiler ve kullanılmayan medya engellenir. Kazanç/hız ölçülür; çalışan özellikleri bozan kör optimizasyon yapılmaz.
