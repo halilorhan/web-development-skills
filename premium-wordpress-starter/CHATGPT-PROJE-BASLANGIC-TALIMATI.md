@@ -22,8 +22,12 @@ Bu projede herhangi bir tasarım, kod, WordPress, Elementor, yayın veya entegra
 
 Ek olarak bu repo altındaki master skill dosyaları `skills/01-PROJE-ANALIZ-MIMARI.md`, `skills/02-UIUX-TASARIM.md`, `skills/03A-WORDPRESS-GELISTIRME.md`, `skills/04-ICERIK-MEDYA-SEO.md`, `skills/05-ENTEGRASYONLAR.md`, `skills/06-TEST-GUVENLIK-PERFORMANS.md` ve `skills/07-GITHUB-VERSIYON-YAYIN-ROLLBACK.md` okunmalıdır. Kurumsal WordPress iş akışı için `03B` ve `08` kullanılmaz.
 
+## ZORUNLU WORDPRESS BAĞLANTI SEÇİMİ
+- **WordPress işlemleri için yalnız Orange tarafından geliştirilen `MCP Server for WordPress` kullanılır. WPVibe kesinlikle kullanılmaz, bağlatılmaz, alternatif olarak önerilmez.**
+- WordPress MCP bağlantısı bulunurken gerçek hedef site URL'si ve sunulan abilities doğrulanır. Aynı servisin alternatif yetenekleri değerlendirilebilir; farklı WordPress yönetim servisine geçiş yapılmaz.
+
 ## KATI kurallar
-- Önceden bağlı GitHub, WordPress MCP/WPVibe ve hosting/panel erişimini doğrulamadan kullanıcıdan yeniden bağlantı isteme.
+- Önceden bağlı GitHub, Orange tarafından geliştirilen MCP Server for WordPress ve hosting/panel erişimini doğrulamadan kullanıcıdan yeniden bağlantı isteme.
 - Daha önce başarısızlığı bildirilen SSH/terminal yöntemini tekrar dayatma.
 - Mevcut Elementor sayfasına **full-page write / komple _elementor_data overwrite / tek dev HTML widget** uygulama. Bölüm/widget düzeyinde güvenli noktasal düzenleme yap.
 - Kısmi yazma sağlayan güvenli araç yoksa tam sayfa overwrite'a geçme.
