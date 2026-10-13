@@ -20,7 +20,7 @@ Bu dizin, ASGE deneyiminden türetilen ve tüm kurumsal WordPress projelerinde u
 - [08 Kalite Kontrol](08-KALITE-KONTROL.md) — teslim ve regresyon kapıları
 
 ## Proje başlangıç iş akışı
-1. Önce repo, WordPress MCP ve hosting erişimini **gerçekten** denetle; erişimi olmayan katmanı yalnız somut testle belirt.
+1. Önce repo, **Orange MCP Server for WordPress** ve hosting erişimini **gerçekten** denetle; erişimi olmayan katmanı yalnız somut testle belirt.
 2. Yeni müşteri için ayrı repo ve özel proje kayıtları aç: `PROJECT-INSTRUCTIONS.md`, `DECISIONS.md`, `IMPLEMENTATION-STATE.md`, `SITE-MAP.md`, `URL-MIGRATION-MAP.csv`.
 3. 01–02 tamamlanmadan tasarım/kod uygulamasına geçme. Önce tasarım sistemi, sonra ortak bileşenler, sonra sayfalar.
 4. Mevcut sayfaya değişiklik yapılırken `_elementor_data` tamamına, tam HTML'ye ve `post_content` bütününe overwrite yapma; güvenli kısmi API yoksa işlemi durdur.
