@@ -6,11 +6,15 @@
 
 **Önce bağlı araçları kullan; bağlantı istemeyi son çareye bırak.** Kullanıcıya tekrar tekrar “GitHub’ı bağla”, “MCP’yi kur”, “SSH aç”, “sunucuya erişim ver”, “ekran görüntüsü gönder” demek varsayılan davranış olamaz. Önce somut araç keşfi ve en az bir gerçek, hedefe uygun erişim çağrısı yapılır. Araçların adının mevcut olması, yetkinin veya belirli hedefe erişimin kesin olduğu anlamına gelmez.
 
+## DEĞİŞMEZ WORDPRESS MCP KURALI
+
+**Yalnız Orange tarafından geliştirilen MCP Server for WordPress kullanılacak. WPVibe KESİNLİKLE KULLANILMAYACAK.** WPVibe'nın bağlı veya kullanılabilir görünmesi bu yasağı değiştirmez. WordPress içerik/yönetim işlemleri başka bir WordPress yönetim MCP'sine yönlendirilmez. Sunucu barındırma paneli, DNS ve GitHub ayrı katmanlardır ve kendi görevleri için kullanılabilir.
+
 ## Her yeni görevde zorunlu erişim sırası
 
 1. **Mevcut konuşma ve proje kaydı:** Repo, site, staging/production, mevcut bağlantı, önceki engel, kullanıcı tarafından daha önce reddedilmiş yöntemler ve önceki sonuçlar belirlenir. Bilinen bilgi kullanıcıya tekrar sorulmaz.
 2. **GitHub:** Kurulu GitHub bağlantısı keşfedilir; hedef repo bulunur, ilgili dosya/branch okuma ve görev gerektiriyorsa yazma yetkisi uygun gerçek çağrıyla sınanır. Repo yolu tahmin edilmez, kod/değişiklik kaydı repoda tutulur.
-3. **WordPress MCP:** Bağlı MCP Server for WordPress, WPVibe veya mevcut eşdeğer WordPress araçları keşfedilir. Önce kayıtlı siteler ve *gerçek site URL’si* belirlenir. Staging bağlantısı, production erişimi gibi sunulmaz. Bir WordPress aracı yetersizse diğer uygun ve yetkili WordPress aracı araştırılır.
+3. **WordPress MCP:** **Tek yetkili WordPress içerik/yönetim entegrasyonu Orange tarafından geliştirilen MCP Server for WordPress'tir.** Mevcut MCP Server for WordPress bağlantısı keşfedilir; WPVibe kullanılmaz ve alternatif olarak önerilmez. Önce kayıtlı siteler ve *gerçek site URL’si* belirlenir. Staging bağlantısı, production erişimi gibi sunulmaz. MCP Server for WordPress üzerinde gerekli yetenek bulunmuyorsa aynı MCP içindeki diğer abilities ve güvenli operasyon yolları araştırılır; WPVibe'ya geçilmez.
 4. **Sunucu ve hosting:** Mevcut panel/hosting/bağlantı entegrasyonları keşfedilir; hedef uygulama, alan adı, dosya, veritabanı, yedek ve yayın yetenekleri doğrulanır. Panelin File Manager, Site Clone, backup, domain, SSL gibi araçları uygulanabilirse SSH zorunlu tutulmaz. Kullanıcının daha önce çalışmadığını belirttiği SSH yöntemi tekrar önerilmez.
 5. **Alternatif yol:** Tek bir araç hatası bütün servisin erişilemez olduğu sonucunu doğurmaz. Aynı işi yapabilen yetkili farklı bağlantı, panel, uygulama veya kontrollü içe/dışa aktarma seçeneği denenir.
 6. **Kullanıcıya yönlendirme ancak son çare:** Gerçekten kullanıcı etkileşimi zorunluysa nedeni ve gereken *tek* en kısa işlem söylenir. Gereksiz ekran görüntüsü, panel gezintisi veya aynı bağlantıyı yeniden yapma talebi yoktur.
@@ -41,6 +45,6 @@
 
 ## ASGE’den edinilen ders
 
-ASGE'de GitHub deposu, staging WordPress MCP/WPVibe bağlantısı ve SpeedyPanel'in uygulama, alan adı, yedek ve dosya/veritabanı ekranları ayrı erişim katmanlarıdır. Terminal menüsünün bulunmaması otomatik olarak göçün yapılamayacağı anlamına gelmez. Bağlantı önerisi vermeden önce bağlanılan hedef ve mevcut panel özellikleri doğrulanmalı, kullanıcı aynı işlemleri tekrar tekrar yapmak zorunda bırakılmamalıdır.
+ASGE'de GitHub deposu, staging Orange tarafından geliştirilen MCP Server for WordPress bağlantısı ve SpeedyPanel'in uygulama, alan adı, yedek ve dosya/veritabanı ekranları ayrı erişim katmanlarıdır. Terminal menüsünün bulunmaması otomatik olarak göçün yapılamayacağı anlamına gelmez. Bağlantı önerisi vermeden önce bağlanılan hedef ve mevcut panel özellikleri doğrulanmalı, kullanıcı aynı işlemleri tekrar tekrar yapmak zorunda bırakılmamalıdır.
 
 **Gelecek kullanım:** Bu belge müşteri özelindeki ASGE içerikleri taşınmadan genel premium WordPress başlangıç reposuna aktarılacak ve proje başlangıç talimatından açıkça referanslanacaktır.
