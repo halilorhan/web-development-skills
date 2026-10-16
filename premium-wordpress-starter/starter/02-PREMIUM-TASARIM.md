@@ -33,6 +33,19 @@ ASGE'de hedeflenen seviye, jenerik Elementor şablonunun ötesinde özgün, güv
 6. Tablet/mobil: hover'a bağımlı kritik bilgi bırakma; CTA erişilebilir; menü tıklaması ve kaydırma testleri.
 7. Gerçek metinlerle kırılım, overflow, kontrast, odak, animasyon ve performans kabulü.
 
+## Zorunlu pilot karşılaştırması ve kanıtı (K2)
+
+**Ring Hamam dersi:** Kullanıcı tarafından reddedilen ilk sürümde metin ağırlıklı, genel geçer Elementor yerleşimi yayına çıktı; gerçek referans site, marka görselleri ve güçlü kompozisyon yeterince uygulanmadı. Sonradan onaylanan tasarımın kalite düzeyi `halilorhan/ring-hamam-spa` deposundaki **`tasarim-onayli-2026-10-16`** sürümünde kayıtlıdır. Bu bir *görsel işçilik kıstasıdır*, tüm müşteriler için kopyalanacak sabit CSS, renk veya logo değildir.
+
+**Pilot kabul işlemi:**
+1. Varsa kullanıcı referans sitesinin desktop/mobil görünümünü gerçekten aç ve somut tasarım özelliklerini not et: ilk ekranın görsel kompozisyonu, başlık hiyerarşisi, gerçek logo, menü, CTA, hizmet kartları, galeri ve sayfa derinliği. Referans erişilemediyse durumu `BLOCKED` olarak kaydet; incelemiş gibi anlatma.
+2. İlk ana sayfayı gerçek/izinli varlıklarla hazırla. **Boş tema, geçici başlıklar, sahte görseller, tek renk bloklarından ibaret şablon** premium pilot diye sunulmaz.
+3. Desktop (yaklaşık 1440 px) ve mobil (yaklaşık 390 px) gerçek render/screenshot veya eşdeğer görsel inceleme kanıtı edin; referansla yan yana değerlendirme sonucunu kaydet. Tablet görünümü K3'te ayrıca kontrol edilir. Bu çözünürlükler örnektir, zorunlu tek ölçü değildir.
+4. Eksikleri öznel “oldu” ifadesiyle değil, düzeltilecek **somut bileşen farklarıyla** belirt (logo kalitesi, boşluk, kadraj, CTA, menü, kart sayısı, okunurluk). Hatalı alanı düzelt, aynı kanıtı gereksiz tekrarlama.
+5. Pilot `PROJECT-QUALITY-GATE.json` içinde `PASS` durumuna **yalnız tasarım kanıtı ve gerçek kullanıcı onay referansı ile** geçer. Bu gerçekleşmeden toplu iç sayfa üretimi ve yayına geçme. Eksik onay kullanıcıdan bir kez, kısa biçimde istenir; verilmiş onayı yeniden isteme.
+
+**Kabulde reddedilecek durumlar:** Referans analizinin yapılmış gibi gösterilmesi; teknik kaydetme/200 OK'un premium kalite delili sayılması; onaysız tasarımın canlıya alınması; onaylı bileşenlerin sebepsiz değiştirilmesi.
+
 ## Tasarım kilidi
 Müşteri bir sayfa/alanı onayladıktan sonra global yeniden tasarıma girilmez. Revizyonun etkisini belirle ve sadece ilgili bileşeni değiştir. Yasağı ihlal eden tam sayfa Elementor overwrite kesinlikle kullanılmaz.
 
