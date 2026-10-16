@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "project": "NEW_CUSTOMER_PROJECT",
+  "gate_k1_source": {
+    "status": "BLOCKED",
+    "project_decisions_reference": "",
+    "brand_assets_reference": "",
+    "reference_site_review_reference": "",
+    "scope_and_services_reference": ""
+  },
+  "gate_k2_pilot": {
+    "status": "BLOCKED",
+    "desktop_visual_evidence": "",
+    "mobile_visual_evidence": "",
+    "reference_comparison_reference": "",
+    "client_design_approval_reference": ""
+  },
+  "gate_k3_quality": {
+    "status": "BLOCKED",
+    "desktop_review_reference": "",
+    "tablet_review_reference": "",
+    "mobile_review_reference": "",
+    "navigation_and_cta_reference": "",
+    "content_and_media_reference": "",
+    "critical_issues": null
+  },
+  "gate_k4_release": {
+    "status": "BLOCKED",
+    "production_url": "",
+    "file_and_database_backup_reference": "",
+    "rollback_plan_reference": "",
+    "client_publish_approval_reference": "",
+    "deployment_method": "",
+    "github_production_environment_protected": false
+  }
+}
