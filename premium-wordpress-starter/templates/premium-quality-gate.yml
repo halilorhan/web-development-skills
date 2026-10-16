@@ -1,0 +1,29 @@
+# COPY THIS FILE to each future customer project's .github/workflows/
+# Requires scripts/check_quality_gate.py and PROJECT-QUALITY-GATE.json.
+# This validates a release PR; GitHub ruleset/required check and real deploy
+# pipeline must be configured separately to actually block releases.
+name: Premium Site Release Gate
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  premium-release-gate:
+    name: Premium release evidence
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read release sources
+        uses: actions/checkout@v4
+      - name: Check mandatory premium release evidence
+        run: python3 scripts/check_quality_gate.py --stage release --manifest PROJECT-QUALITY-GATE.json
+
+# DO NOT mistake this evidence check for customer verification.
+# A workflow can be bypassed by direct Orange MCP/WordPress publish.
+# When GitHub deploy is configured, require this check on the main branch and
+# use a protected production Environment with reviewer approval on the deploy job.
