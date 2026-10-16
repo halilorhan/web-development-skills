@@ -27,6 +27,18 @@ Bu dizin, ASGE deneyiminden türetilen ve tüm kurumsal WordPress projelerinde u
 5. Gerçek içerik ve işlevleri doğrula, yalnız etkilenen alanı test et; kritik yayında regresyon kapsamını genişlet.
 6. Yedek, URL kontrolü, kullanıcı onayı ve rollback planıyla canlıya al.
 
+## Zorunlu premium geçiş kapıları (K1–K4)
+
+Yeni kurumsal site üretiminde mevcut 01–08 rehberlerinin çıktıları artık dört **kanıt kapısıyla** kayıtlanır:
+- **K1 Kaynak:** Gerçek logo, içerik, kullanıcı referansı ve proje kararları incelenir.
+- **K2 Pilot:** Tek güçlü ana sayfa + desktop/mobil görsel karşılaştırma + müşterinin tasarım onayı.
+- **K3 Kalite:** Desktop/tablet/mobile, kritik gezinme/CTA ve gerçek içerik kabulü.
+- **K4 Yayın:** Kullanıcı canlı yayın onayı, yedek, rollback ve gerekli testler.
+
+Yeni projede `premium-wordpress-starter/templates/PROJECT-QUALITY-GATE.example.json` → `PROJECT-QUALITY-GATE.json` kopyalanır. `templates/check_quality_gate.py` kanıt alanlarını doğrular; GitHub Actions kullanan projelerde `templates/premium-quality-gate.yml` yayın PR'lerine uyarlanabilir. **Bu dosyaların merkezde bulunması diğer müşteri depolarına otomatik kurulum yapmaz.** GitHub kontrolü gerçek görsel kaliteyi veya müşteri onayını tek başına doğrulamaz ve WordPress paneli/Orange MCP üzerinden doğrudan canlıya çıkışı engellemez. Teknik yayın koruması yalnız gerçek dağıtım hattına bağlanınca etkin sayılır.
+
+Başarılı işçilik düzeyi referansı: `halilorhan/ring-hamam-spa` içindeki `tasarim-onayli-2026-10-16` dalı. Kodu, renkleri ve görselleri diğer markalara kopyalama.
+
 ## Yeniden kullanım sınırları
 ASGE'nin kendine özgü danışmanlık metinleri, müşteri logoları, kişi görselleri, site/şablon ID'leri, alan adları, özel lead ve teşvik veri modeli başka müşteriye kopyalanmaz. Genel tasarım sistemi prensipleri, çalışma sırası, güvenli modüler WordPress yaklaşımı yeniden kullanılır.
 
