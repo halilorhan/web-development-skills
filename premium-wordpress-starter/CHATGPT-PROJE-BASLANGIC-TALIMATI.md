@@ -22,6 +22,17 @@ Bu projede herhangi bir tasarım, kod, WordPress, Elementor, yayın veya entegra
 
 Ek olarak bu repo altındaki master skill dosyaları `skills/01-PROJE-ANALIZ-MIMARI.md`, `skills/02-UIUX-TASARIM.md`, `skills/03A-WORDPRESS-GELISTIRME.md`, `skills/04-ICERIK-MEDYA-SEO.md`, `skills/05-ENTEGRASYONLAR.md`, `skills/06-TEST-GUVENLIK-PERFORMANS.md` ve `skills/07-GITHUB-VERSIYON-YAYIN-ROLLBACK.md` okunmalıdır. Kurumsal WordPress iş akışı için `03B` ve `08` kullanılmaz.
 
+## PREMIUM ÜRETİM KAPILARI — ATLAMAK YASAK
+
+Bu kurallar **yeni web sitesi kurulumlarında** mevcut `01–08` standartlarının uygulanmasını kanıtlanabilir aşamalara bağlar; mevcut tek sayfa/metin revizyonlarında kapsam kadar test yeterlidir.
+
+1. **K1 — Kaynakları gerçekten oku:** Projeye özel kararlar, marka/gerçek logo, tüm ekli kaynaklar, müşteri hizmet envanteri ve varsa referans siteler okunur. Referans siteyle karşılaştırma ve kullanılan kaynakların kaydı `PROJECT-QUALITY-GATE.json` içinde tutulur. Kaynak okunamadıysa `PASS` verme; kritik gerçeği uydurma.
+2. **K2 — Yalnız premium pilot:** Gerçek marka ve görsellerle, tek **ana sayfa pilotu** ve en az masaüstü/mobil görsel kanıtı hazırlanır. Referansın görsel hiyerarşisiyle karşılaştırılır. Hazır tema hissi, metin ağırlıklı geçici layout, sahte logo ve placeholder varsa düzelt. **Müşteri tasarım onayı olmadan tüm iç sayfalara toplu yayılma ve canlı yayın yok.**
+3. **K3 — Görsel + işlev kabulü:** Onaylı pilotun desktop/tablet/mobile görselleri, menü ve CTA davranışı, gerçek içerik, medya ve ilgili SEO kontrol edilir. Yalnız sayfanın HTTP 200 döndürmesi veya Elementor'un içeriği kaydetmesi, **tasarımın premium olduğunu kanıtlamaz**. Hedefli kusurları giderip sadece etkilenen alanları yeniden kontrol et; gereksiz test zinciri kurma.
+4. **K4 — Yayın kapısı:** Önkoşullar, kanıtlar, yedek/geri dönüş, kritik testlerin `PASS` durumu ve **kullanıcının açık yayın onayı** yoksa canlı yayın yapılmaz. Teknik GitHub deploy'u varsa `templates/` altındaki kontrol betiği/örnek workflow ve mümkünse korumalı `production` environment kullanılır. **Orange MCP ile doğrudan WordPress publish işlemini GitHub Actions tek başına engellemez**; bu durumda asistan onay olmadan publish çağrısı yapmaz. Ortam sağlayıcısının gerçek teknik engeli yoksa “teknik kilit kuruldu” iddiası yasaktır.
+
+**Başlangıç çıktısı:** Yeni müşterinin kendi reposunda `PROJECT-QUALITY-GATE.json` (örnek: `templates/PROJECT-QUALITY-GATE.example.json`) oluştur, durumu başlangıçta `BLOCKED` bırak ve kanıt oluşmadan `PASS` yapma. GitHub'daki kaynak dosyaların varlığı görsel kalite, onay veya yayımlama başarısı değildir.
+
 ## ZORUNLU WORDPRESS BAĞLANTI SEÇİMİ
 - **WordPress işlemleri için yalnız Orange tarafından geliştirilen `MCP Server for WordPress` kullanılır. WPVibe kesinlikle kullanılmaz, bağlatılmaz, alternatif olarak önerilmez.**
 - WordPress MCP bağlantısı bulunurken gerçek hedef site URL'si ve sunulan abilities doğrulanır. Aynı servisin alternatif yetenekleri değerlendirilebilir; farklı WordPress yönetim servisine geçiş yapılmaz.
