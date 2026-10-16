@@ -14,6 +14,14 @@
 5. Müşteri onaylı tasarım ve kullanıcı akışları staging'de doğrulansın.
 6. Riskli silme, DB overwrite, domain ve DNS işlemleri için açık kullanıcı onayı gerekiyorsa al; salt alan adı ekleme ile DB içindeki WordPress URL dönüşümünü birbirine karıştırma.
 
+## Premium pilot ve production yayın kapısı (K2 → K4)
+
+- Yeni siteyi önce **staging veya erişimi kontrollü, indeks dışı önizleme** ortamında oluştur. Gerçek staging yoksa üretim ortamına onaysız tam site yayını yapma; güvenli draft/önizleme kullan.
+- Önce **tek ana sayfa pilotu** görsel kanıt ve kullanıcı tasarım onayıyla kabul edilmeli; sonra diğer sayfalar ve global bileşenler genişletilir.
+- `PROJECT-QUALITY-GATE.json` üzerinde K1/K2/K3/K4 `PASS`, gerçek kanıt ve açık yayın onayı yoksa **yeni sitenin production publish işlemi yasaktır**. `BLOCKED` veya `FAIL` olan kritik kapı yayın önünde durur.
+- GitHub Actions ile deploy edilen gelecekteki müşteri projelerinde `templates/premium-quality-gate.yml` ve `templates/check_quality_gate.py` uyarlanarak zorunlu CI kontrolü kurulabilir. Gerçek kilit için GitHub branch protection/ruleset, gerekli check ve **production Environment reviewers** uygun planda, ilgili repo ayarlarında ayrıca etkinleştirilmeli; deployment workflow'u bu environment'ı kullanmalıdır.
+- **Sınır:** Bu repo yalnızca standartları/örnek CI dosyalarını taşır. Orange MCP/WordPress panelinden doğrudan yapılan yayın GitHub Actions tarafından engellenmez. Bağlanmamış pipeline'a “teknik olarak kilitli” denmez. Bu yolda kullanıcı onayı olmadan doğrudan yayını tetiklememek asistanın zorunlu çalışma kuralıdır.
+
 ## WordPress migrasyonunda gerçek kontrol
 - İlgili ortamda WordPress `home`/`siteurl`, HTTPS ve DB içeriğindeki domain referanslarını **hedef kopya üzerinde**, serialized-safe araçla ele al.
 - Domain değişikliği sırasında Elementor verisi/JSON ve serialized metadata için uygun aracı ve istisna tablolarını belirle; staging'i kazara canlı URL'ye çevirmeden önce DB hedefini denetle.
