@@ -48,6 +48,23 @@ Her maddenin durumu `PASS / FAIL / BLOCKED / N/A` olarak belgelenir; `BLOCKED` v
 - [ ] Domain/SSL, WP home/siteurl, medya, 301/404, Search Console/sitemap kontrol edildi.
 - [ ] Kullanılabilir rollback, yayın kaydı ve müşteri onayı var.
 
+## K1–K4 premium kanıt kapısı — tamamlanmış proje için
+
+Her yeni müşteri reposunda `PROJECT-QUALITY-GATE.json` tutulur. Örnek şema `../templates/PROJECT-QUALITY-GATE.example.json`; kontrol betiği `../templates/check_quality_gate.py`. Bu dosya mevcut A–F kontrol maddelerinin **yerine geçmez**, faz onaylarının doğrulanabilir özetidir.
+
+| Kapı | PASS için asgari delil | FAIL/BLOCKED ise |
+| --- | --- | --- |
+| **K1 Kaynak** | Marka/referans kaydı, gerçek varlık durumu, ilgili kaynak bağlantısı veya dosya referansı | Kritik marka/içerik bilinmiyorsa uydurma veya yayın yok |
+| **K2 Pilot** | Gerçek desktop/mobil pilot görüntü referansı, referansla somut karşılaştırma, müşterinin tasarım onay kaydı | Seri sayfa üretimi ve canlı yayın yok |
+| **K3 Kalite** | Desktop/tablet/mobile kanıtı, menü/CTA ve gerçek içerik kontrolleri, sıfır kritik görsel/işlev hatası | Hedefli düzeltme, etkileneni yeniden kontrol |
+| **K4 Yayın** | Production hedefi, dosya+DB yedek/rollback referansı, kullanıcının yayın onayı, kayıtlı dağıtım yöntemi | Production publish/deploy yok |
+
+**Delil standardı:** Dosya adı, gerçek URL veya onay/talimat referansı kullan; “test edildi”, “müşteri onayladı”, “premium” ifadeleri tek başına PASS olamaz. Bot, kanıt alanlarının varlığını ve durum değerlerini denetleyebilir; estetik kaliteyi veya kullanıcının gerçekten onay verdiğini **tek başına teyit edemez**. Görsel karşılaştırma ve onayın asıl doğrulanması insan/görsel incelemedir.
+
+**İki ayrı yayımlama hattı:** GitHub workflow üzerinden deploy varsa CI kontrolü + branch/environment koruması yayın önkoşulu olarak uygulanabilir. Orange MCP/panel üzerinden WordPress'e doğrudan yazılıyorsa GitHub workflow bunu otomatik engellemez; aynı kapılara uymak asistanın zorunlu operasyon davranışıdır. Teknik kontrol kurulmadıysa kurulmuş gibi raporlama.
+
+**Kapsam istisnası:** Daha önce onaylı sitedeki küçük, noktasal bir metin/görsel düzeltmesi yeni pilot ve yeni kullanıcı yayını gerektirmeyebilir. Bu durumda yalnız değişen alanın gerekli testi ve geri dönüşü yapılır; mevcut tasarım kilidi korunur.
+
 ## Kapanış protokolü
 1. FAIL/BLOCKED maddeleri, konum/etki/çözümle raporlanır.
 2. Düzeltmeler yalnız etkilenen alanlara minimum patch ile uygulanır.
